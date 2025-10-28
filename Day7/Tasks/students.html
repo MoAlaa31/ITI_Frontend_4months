@@ -53,7 +53,7 @@
         mySelect = document.querySelector("select");
         myDiv = document.querySelector("div");
         
-        mySelect.addEventListener("change", function(event){
+        mySelect.addEventListener("change", function(){
             txt = this.value;            
             myDiv.innerHTML = `<p style="margin-left : 10px">Student Name: ${students[txt].name},<br> Student Age: ${students[txt].age},<br> Student Crs: ${students[txt].Crs}</p>`;
         })
