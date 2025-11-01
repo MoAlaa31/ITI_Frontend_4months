@@ -1,0 +1,75 @@
+﻿<html>
+<head>
+	<title>JSON With AJAX from Web API</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+</head>
+<body>
+	<!-- <input type="text" id="pID">
+<input type="button" id="button2" onclick="getProduct()" value="show product" />
+<div id="prod"></div> -->
+
+
+<input type="text" id="in1">
+<button id="btn1">get My Product</button>
+<div id="prod"></div>
+<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+
+<button>Get External Content</button>
+<!-- <script>
+	$(document).ready(function(){
+	  $("button").click(function(){
+		$("#div1").load("demo1.txt", function(responseTxt, statusTxt, xhr){
+		  if(statusTxt == "success")
+			alert("External content loaded successfully!");
+		  if(statusTxt == "error")
+			alert("Error: " + xhr.status + ": " + xhr.statusText);
+		});
+	  });
+	});
+	</script> -->
+
+
+
+<script>
+
+
+
+	$("#btn1").click(function(){
+		alert("get");
+      var id=$("#in1").val();
+	  var url="https://jsonplaceholder.typicode.com/todos/" +id;
+	  $.getJSON(url,function(result){
+		var str=`<p> My Product Name=${result.title}<p>
+			<p> My Product statua=${result.completed}<p>`
+		$("#prod").html(str);
+	  })
+
+
+	})
+	// function getProduct()
+	// {
+	// 	var prodID=$("#pID").val();
+	// 	var url="https://reqres.in/api/products/" +prodID;
+	// 	$.getJSON(url, function(result){
+	// 		displayProduct(result);
+	// 	});
+		
+	// }
+
+	function displayProduct(p)
+	{
+		//var jsonData=JSON.parse(p);
+		var jsonData=p;
+		var prod=jsonData.data;
+		var str="<br>Product ID: " + prod.id
+			   +"<br>Product Name: " + prod.name
+			   +"<br>Production year: " + prod.year
+			   +"<br>Product Color: " + (prod.color).fontcolor(prod.color);
+			   
+		$("#prod").html(str);
+		
+	}
+</script>
+</body>
+</html>

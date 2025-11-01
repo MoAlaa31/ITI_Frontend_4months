@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <link rel="stylesheet" href="style4.css">
+
+    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+
+</head>
+
+<body>
+    <div class="accordion">
+        <h3>Section 1</h3>
+        <div>
+            <a href="#">Link 1</a>  
+            <a href="#">Link 2</a>
+        </div>
+        <h3>Section 2</h3>
+        <div>
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+        </div>
+        <h3>Section 3</h3>
+        <div>
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+        </div>
+        <h3>Section 4</h3>
+        <div>
+            <a href="#">Link 1</a>
+            <a href="#">Link 2</a>
+        </div>
+    </div>
+
+    <div class="content">
+        <div id="slider">
+            <img src="Images/1.png" alt="">
+            <img src="Images/2.png" alt="">
+            <img src="Images/3.png" alt="">
+            <img src="Images/4.png" alt="">
+            <img src="Images/5.png" alt="">
+            <img src="Images/6.png" alt="">
+        </div>
+
+        <div class="buttons">
+            <input type="button" value="previous" id="prev">
+            <input type="button" value="next" id="next">
+            <input type="button" value="slide show" id="slide">
+            <input type="button" value="stop" id="stop">
+        </div>
+    </div>
+
+    <script>
+        $(".accordion h3").click(function () {
+            $(this).next().slideToggle();
+        });
+
+        let counter = 0;
+        let imgs = $("#slider img");
+        let total = imgs.length;
+        let mode = false;
+        let myInt;
+
+        $("#next").click(function () {
+            imgs.eq(counter).hide();
+            counter = (counter + 1) % total;
+            imgs.eq(counter).show();
+        });
+
+        $("#prev").click(function () {
+            imgs.eq(counter).hide();
+            counter = (counter - 1 + total) % total;
+            imgs.eq(counter).show();
+        });
+
+        $("#slide").click(function () {
+            if (!mode) {
+                mode = true;
+                myInt = setInterval(function () {
+                    imgs.eq(counter).fadeOut(500);
+                    counter = (counter + 1) % total;
+                    imgs.eq(counter).fadeIn(500);
+                }, 1000);
+            }
+        });
+
+        $("#stop").click(function () {
+            mode = false;
+            clearInterval(myInt);
+        });
+
+    </script>
+</body>
+
+</html>

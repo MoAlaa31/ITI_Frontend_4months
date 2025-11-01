@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style3.css">
+    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+
+</head>
+
+<body>
+<img id="img" src="pic1.jpg" draggable="true">
+  <div id="box"></div>
+
+    <script>
+    $("#box").on("dragover", function(e) {
+      e.preventDefault();
+    });
+
+    $("#box").on("drop", function(e) {
+      e.preventDefault();
+      let imgSrc = $("#img").attr("src");
+      $(this).css("background", `url(${imgSrc}) center/cover`);
+    });
+    </script>
+</body>
+
+</html>

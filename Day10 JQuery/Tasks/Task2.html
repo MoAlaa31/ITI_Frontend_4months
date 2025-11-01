@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css">
+    <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+</head>
+
+<body>
+    <button type="button" id="log">
+        Login
+    </button>
+    <div class="overlay">
+        <div class="login-box">
+            <h3>Login</h3>
+            <input type="text" placeholder="Username" id="usr"><br><br>
+            <input type="password" placeholder="Password" id="pass"><br><br>
+            <input type="checkbox" id="checked">
+            <span>remember me</span><br>
+            <button id="login">Login</button>
+            <button id="cancel">Cancel</button>
+        </div>
+    </div>
+    <script>
+        // 1 - first task
+        $("#log").click(function () {
+            $(".overlay").fadeToggle();
+        })
+
+        $("#cancel").click(function (e) {
+            $(".overlay").fadeOut();
+        });
+        $("#login").click(function () {
+            $("body").html()
+        })
+        $("#login").click(function (e) {
+            e.preventDefault();
+            if ($("#pass").val() == "1234" && $("#usr").val() == "Ali") {
+                open("welcome.html");
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load Users Data by ajax</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h2>Users data</h2>
+    <button onclick="getData()">get data</button>
+    <ul id="ul1">Users List</ul>
+    <div id="box" style="width: 100px; height: 100px;background-color: red;"></div>
+    <script>
+        // fetch("https://dummyjson.com/users").then(respose=>respose.json()).then(data=>{
+        //     console.log(data.users,"my data");
+        //     data.users.forEach(element => {
+        //         const li=$("<li></li>").html(element.firstName);
+        //         $("#ul1").append(li); 
+        //     });
+        // })
+        function getData() {
+            $('#box').animate({
+                left: '300px',
+                width: '200px',
+                height: "200px",
+                opacity: .5,
+            }, "easing")
+            // $.ajax({
+            //     url:'https://dummyjson.com/users',
+            //     method:'GET',
+            //     dataType:'json',
+            //     success:function(data){
+            //         data.users.forEach(element => {
+            //             const li=$("<li></li>").html(element.firstName);
+            //             $("#ul1").append(li); 
+            //         }); 
+            //     }
+            // })
+        }
+
+
+
+    </script>
+</body>
+
+</html>

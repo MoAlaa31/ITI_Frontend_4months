@@ -1,0 +1,17 @@
+body {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#box {
+    width: 100px;
+    height: 100px;
+    border: 2px dashed black;
+    background-color: lightgray;
+    margin: 20px auto;
+}
+
+#img {
+    width: 80px;
+    cursor: grab;
+}
